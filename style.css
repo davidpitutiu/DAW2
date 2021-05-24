@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(80,80,80);
+}
+.navbar{
+    background-color: rgb(30, 30, 30);
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    height:70px;
+}
+.navbar ul{
+    display: flex;
+}
+.navbar a:link{
+    text-decoration: none;
+    color: #3098B1;
+}
+.navbar a:hover{
+    color:orangered;
+}
