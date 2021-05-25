@@ -9,12 +9,12 @@
     <title>Social|Home</title>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="index.php" >Home</a></li>
-            <li><a href="upload.php">Upload</a></li>
-            <li><a href="settings.php">Settings</a></li>
+    <div class="navbar  navbar-expand-sm">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="links/profile.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php" >Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="links/upload.php">Upload</a></li>
+            <li class="nav-item"><a class="nav-link" href="links/settings.php">Settings</a></li>
         </ul>
     </div>
 </body>
