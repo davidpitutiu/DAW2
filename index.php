@@ -1,21 +1,59 @@
+<?php 
+
+	include 'login/config.php';
+	error_reporting(0);
+	session_start();
+
+
+	if (isset($_SESSION['username'])) {
+		header("Location: links/profile.php");
+	}
+
+	if (isset($_POST['submit'])) {
+		$email = $_POST['email'];
+		$password = md5($_POST['password']);
+
+
+		$sql = "SELECT * FROM users WHERE email='$email' AND user_password='$password'";
+		$result = mysqli_query($connect, $sql);
+		if ($result->num_rows > 0) {
+			$row = mysqli_fetch_assoc($result);
+			$_SESSION['username'] = $row['username'];
+			header("Location: links/profile.php");
+		} else {
+			echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+		}
+	}
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social|Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="login/style.css">
+
+	<title>Log In</title>
 </head>
 <body>
-    <div class="navbar  navbar-expand-sm">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="links/profile.php">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.php" >Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="links/upload.php">Upload</a></li>
-            <li class="nav-item"><a class="nav-link" href="links/settings.php">Settings</a></li>
-        </ul>
-    </div>
+	<div class="container">
+		<form action="" method="POST" class="login-email">
+			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
+			<div class="input-group">
+				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+			</div>
+			<div class="input-group">
+				<button name="submit" class="btn">Log In</button>
+			</div>
+			<p class="login-register-text">Don't have an account? <a href="login/signup.php">Sign Up Here</a>.</p>
+		</form>
+	</div>
 </body>
 </html>

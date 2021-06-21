@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
-    background-color: rgb(80,80,80);
+    background-color: white;
 }
 .navbar{
-    background-color: rgb(30, 30, 30);
+    background-color: #003366;
     position:fixed;
     bottom: 0;
     width: 100%;
@@ -10,10 +11,11 @@ body{
 }
 .navbar a:link{
     text-decoration: none;
-    color: #3098B1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:green;
 }
 .navbar a:visited{
-    color:#3098B1;
+    color: green;
 }
 .navbar a:hover{
     color:orangered;
